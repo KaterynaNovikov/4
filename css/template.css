@@ -1,0 +1,545 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+.body {
+    display: flex;
+    height: 100vh;
+    overflow-x: hidden; 
+}
+
+
+.flex {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Левая часть */
+#right-area {
+    width: 60%; 
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+#right-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+#right-area:hover img {
+    transform: scale(1.1);
+}
+
+/* Правая часть (форма) */
+#left-area {
+    width: 50%; 
+    height: 100vh;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    padding: 0;
+    background: #fff;
+}
+
+/* Контейнер для логотипа и заголовка */
+.header-container {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 250px; 
+    background-color: #3a3a3a;
+}
+
+/* Логотип */
+.logo {
+    width: 100px;
+    margin-left: 550px; 
+    background-color: #3a3a3a;
+    display: flex;
+    justify-content: center;
+     align-items: center;
+}
+.logo img {
+    width: 150%;
+    height: auto;
+}
+
+/* Заголовок */
+.al h1 {
+    text-align: left; 
+    font-size: 24px;
+
+    color: #ffffff; 
+    background-color: #3a3a3a;
+}
+
+/* Контейнер формы */
+.inner-form {
+    margin: 0;
+    margin-right: 500px;
+    max-width: 400px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.row {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #218838;
+}
+
+
+.alertMsg, .successMsg {
+    font-size: inherit;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 5%;
+    left: 2%;
+    right: 2%;
+    max-width: 400px;
+    border-radius: 10px;
+    z-index: 999;
+    height: auto;
+    display: none;
+    cursor: pointer;
+}
+
+.alertMsg {
+    color: red;
+    background-color: rgba(255, 228, 228, 0.75);
+    box-shadow: 0px 0 10px 0px rgba(205, 30, 11, 0.5);
+}
+
+.successMsg {
+    color: green;
+    background-color: rgba(218, 249, 223, 0.75);
+    box-shadow: 0px 0 10px 0px rgba(11, 205, 61, 0.5);
+}
+
+.alertMsg i, .successMsg i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+
+@keyframes showFromLeft {
+    0% { opacity: 0; margin-left: -100%; }
+    100% { opacity: 1; margin-left: 0; }
+}
+
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; 
+    }
+
+    #right-area {
+        width: 100%;
+        height: 40vh;
+    }
+
+    #left-area {
+        width: 100%;
+        height: 60vh;
+        padding: 20px;
+    }
+
+    .inner-form {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    input {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+
+
+
+.campaigns-page {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    padding: 80px 20px 20px; 
+    margin-top: 60px; 
+}
+
+
+.header {
+    background-color: #3a3a3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+.header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+.logo img {
+    height: 40px;
+}
+
+
+.menu {
+    display: flex;
+    justify-content: center; 
+    flex-grow: 1;
+}
+
+.menu ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 30px;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 19px;
+    transition: 0.3s;
+    margin-right: 30px;
+}
+
+.menu ul li a:hover {
+    color: #ffcc00;
+}
+
+
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center; 
+    margin-top: 20px;
+}
+
+.header-center h1 {
+    margin: 0;
+    font-size: 34px;
+    color: #333;
+    font-weight: bold;
+    margin-right: 20px; 
+}
+
+.date-picker-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.date-picker-container input[type="date"] {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    background: white;
+    cursor: pointer;
+    transition: border 0.3s ease-in-out;
+    width: 135px; 
+    text-align: center;
+}
+
+.date-picker-container input[type="date"]:hover,
+.date-picker-container input[type="date"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+
+.ptb20 {
+    text-align: left; 
+    margin-top: 20px;
+}
+
+.btnS {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btnS:hover {
+    background-color: #218838;
+}
+
+
+#user-top {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+#user-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #ffcc00;
+    color: black;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#user-info {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#user-info.active {
+    display: block;
+}
+
+#user-info a {
+    color: black;
+    text-decoration: none;
+}
+
+#user-info a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+.table {
+    overflow-x: auto;
+    border-radius: 8px;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1200px; 
+    margin: 20px auto; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f7f7f7;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th.id, td.id {
+    text-align: center;
+}
+
+
+.actions {
+    text-align: center;
+}
+
+.actions a {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.actions a:hover {
+    text-decoration: underline;
+}
+
+
+.empty {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+  }
+  
+  .switch input {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: 0.4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 2px;
+    bottom: 1.5px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+    box-shadow: 0px 0 10px 0px rgba(70, 70, 70, 0.3);
+  }
+  
+  input:checked + .slider {
+    background-color: #00cb84;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #00cb84;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(14px);
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
